@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cellular Automata</title>
+    <script src="bin/cellularAutomata.js"></script>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      #canvas {
+        border: 1px solid #ccc;
+      }
+
+      p {
+        width: 900px;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Understanding Computation: Cellular Automata</h1>
+    <p>Current rule: <span id="rule">110</span></p>
+    <canvas id="canvas" width="900" height="450"></canvas>
+    <p>
+    This is a demonstration of a one-dimensional cellular automaton as
+    described in the book
+    <a href="http://computationbook.com/">Understanding Computation</a>.
+    The animation begins on rule 110. Every couple of seconds, the rule changes
+    changes to something new.
+    </p>
+
+    <script>
+      /* requestAnim shim layer by Paul Irish */
+      window.requestAnimFrame = (function () {
+        return window.requestAnimationFrame ||
+               window.webkitRequestAnimationFrame ||
+               window.mozRequestAnimationFrame ||
+               window.oRequestAnimationFrame ||
+               window.msRequestAnimationFrame ||
+               function (callback) {
+                 window.setTimeout(callback, 1000 / 60);
+               };
+      }());
+
+      var canvas = document.getElementById("canvas");
+
+      var application = new CellularAutomata({
+        rule: 110,
+        width: 300,
+        height: 150,
+        canvas: canvas
+      });
+
+      (function render(){
+        requestAnimFrame(render);
+        application.render();
+        application.step();
+      })();
+
+      setInterval(function () {
+        var randomRule = Math.floor(Math.random() * 255);
+        var span = document.getElementById("rule");
+
+        application.setRule(randomRule);
+        span.innerHTML = randomRule;
+      }, 2000);
+    </script>
+  </body>
+</html>
