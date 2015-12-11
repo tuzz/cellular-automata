@@ -273,8 +273,6 @@ var View = function (circularBuffer) {
   };
 
   self.get = function (x, y) {
-    checkBounds(x, y);
-
     var row;
     if (y < circularBuffer.length()) {
       row = circularBuffer.get(y);
@@ -284,12 +282,6 @@ var View = function (circularBuffer) {
       return row.get(x);
     } else {
       return false;
-    }
-  };
-
-  var checkBounds = function (x, y) {
-    if (x < 0 || x >= width || y < 0 || y >= height) {
-      throw new Error("The coordinate (" + x + ", " + y + ") is out of bounds");
     }
   };
 

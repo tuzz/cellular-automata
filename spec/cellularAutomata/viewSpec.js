@@ -42,22 +42,4 @@ describe("View", function () {
     expect(subject.get(9, 1)).toEqual(true);
     expect(subject.get(10, 1)).toEqual(false);
   });
-
-  it("raises an error when getting out of bounds", function () {
-    expect(function () {
-      subject.get(-1, 0);
-    }).toThrow();
-
-    expect(function () {
-      subject.get(0, -1);
-    }).toThrow();
-
-    expect(function () {
-      subject.get(11, 0);
-    }).toThrow();
-
-    expect(function () {
-      subject.get(0, 3);
-    }).toThrow();
-  });
 });
