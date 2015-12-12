@@ -23,6 +23,10 @@
     <h1>Understanding Computation: Cellular Automata</h1>
     <p>Current rule: <span id="rule">110</span></p>
     <canvas id="canvas" width="900" height="450"></canvas>
+    <p>Speed (<span id="speed">1</span>):
+      <button id="slower">&lt;&lt;</button>
+      <button id="faster">&gt;&gt;</button>
+    </p>
     <p>
     This is a demonstration of a one-dimensional cellular automaton as
     described in the book
@@ -53,19 +57,46 @@
         canvas: canvas
       });
 
+      var speed = 1;
+
       (function render(){
         requestAnimFrame(render);
         application.render();
-        application.step();
+
+        for (var i = 0; i < speed; i += 1) {
+          application.step();
+        }
       })();
 
-      setInterval(function () {
+      var randomizeRule = function () {
         var randomRule = Math.floor(Math.random() * 255);
         var span = document.getElementById("rule");
 
         application.setRule(randomRule);
         span.innerHTML = randomRule;
-      }, 2000);
+
+        setTimeout(randomizeRule, 2000 / speed);
+      };
+      setTimeout(randomizeRule, 2000);
+
+      var faster = document.getElementById("faster");
+      var slower = document.getElementById("slower");
+      var speedSpan = document.getElementById("speed");
+
+      faster.onclick = function () {
+        speed += 1;
+        speedSpan.innerHTML = speed;
+      };
+
+      slower.onclick = function () {
+        speed -= 1;
+
+        if (speed < 1) {
+          speed = 1;
+        }
+
+        speedSpan.innerHTML = speed;
+      };
     </script>
   </body>
 </html>
