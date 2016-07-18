@@ -1,12 +1,12 @@
 "use strict";
 
-var describedClass = require("../lib/cellularAutomata");
+var DescribedClass = require("../lib/cellularAutomata");
 
 describe("CellularAutomata", function () {
   var subject;
 
   beforeEach(function () {
-    subject = new describedClass({
+    subject = new DescribedClass({
       rule: 110,
       width: 4,
       height: 2

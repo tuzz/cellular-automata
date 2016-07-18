@@ -1,6 +1,6 @@
 "use strict";
 
-var describedClass = require("../../lib/cellularAutomata/view");
+var DescribedClass = require("../../lib/cellularAutomata/view");
 var Row = require("../../lib/cellularAutomata/row");
 var CircularBuffer = require("../../lib/cellularAutomata/circularBuffer");
 
@@ -12,7 +12,7 @@ describe("View", function () {
     row.set(9, true);
     circularBuffer = new CircularBuffer(3);
     circularBuffer.push(row);
-    subject = new describedClass(circularBuffer);
+    subject = new DescribedClass(circularBuffer);
   });
 
   it("infers its width and height from the circular buffer", function () {

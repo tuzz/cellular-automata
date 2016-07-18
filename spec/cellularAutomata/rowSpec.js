@@ -1,12 +1,12 @@
 "use strict";
 
-var describedClass = require("../../lib/cellularAutomata/row");
+var DescribedClass = require("../../lib/cellularAutomata/row");
 
 describe("Row", function () {
   var subject;
 
   beforeEach(function () {
-    subject = new describedClass(10);
+    subject = new DescribedClass(10);
   });
 
   it("sets all cells to dead on initialization", function () {

@@ -1,6 +1,6 @@
 "use strict";
 
-var describedClass = require("../../lib/cellularAutomata/automaton");
+var DescribedClass = require("../../lib/cellularAutomata/automaton");
 var Rule = require("../../lib/cellularAutomata/rule");
 var Row = require("../../lib/cellularAutomata/row");
 
@@ -9,7 +9,7 @@ describe("Automaton", function () {
 
   beforeEach(function () {
     var rule = new Rule(110);
-    subject = new describedClass(rule);
+    subject = new DescribedClass(rule);
     row = new Row(11);
     row.set(9, true);
   });

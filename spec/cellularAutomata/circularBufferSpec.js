@@ -1,12 +1,12 @@
 "use strict";
 
-var describedClass = require("../../lib/cellularAutomata/circularBuffer");
+var DescribedClass = require("../../lib/cellularAutomata/circularBuffer");
 
 describe("CircularBuffer", function () {
   var subject;
 
   beforeEach(function () {
-    subject = new describedClass(3);
+    subject = new DescribedClass(3);
   });
 
   it("behaves as expected", function () {

@@ -1,7 +1,7 @@
 "use strict";
 
 var SpecHelper = require("../specHelper");
-var describedClass = require("../../lib/cellularAutomata/canvasView");
+var DescribedClass = require("../../lib/cellularAutomata/canvasView");
 var Row = require("../../lib/cellularAutomata/row");
 var CircularBuffer = require("../../lib/cellularAutomata/circularBuffer");
 var View = require("../../lib/cellularAutomata/view");
@@ -19,7 +19,7 @@ describe("CanvasView", function () {
     var view = new View(circularBuffer);
     canvas = SpecHelper.mockCanvas();
 
-    subject = new describedClass(canvas, view);
+    subject = new DescribedClass(canvas, view);
   });
 
   it("renders alive cells in black and dead cells in white", function () {
